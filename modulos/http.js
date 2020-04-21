@@ -17,13 +17,6 @@ function router(req, res) {
             res.write('Error 404: no se lo que quieres');
             res.end();
      }
-
-    //  res.writeHead(201, { 'Content-Type': 'Funcionamiento ok' })
-
-    // //respuesta para el usuario
-    //  res.write('Hola, estamos usando HTTP de NodeJS')
-
-    //  res.end();
 }
 
 // http.createServer((req, res) =>{
