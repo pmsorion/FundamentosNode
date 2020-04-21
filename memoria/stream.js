@@ -1,12 +1,3 @@
-const fs = require('fs');
-const stream = require('stream');
-const util = require ('util');
-
- let data = '';
-
- let readableStream = fs.createReadStream(__dirname + '/input.txt');
- readableStream.setEncoding('UTF8');
-
 // readableStream.on('data', (chunk) => {
 //     data += chunk;
     // console.log(chunk);
@@ -22,14 +13,22 @@ const util = require ('util');
 // process.stdout.write('que');
 // process.stdout.write('tal');
 
+const fs = require('fs');
+const stream = require('stream');
+const util = require ('util');
 
-const transForm = stream.Transform;
+ let data = '';
+
+ let readableStream = fs.createReadStream(__dirname + '/input.txt');
+ readableStream.setEncoding('UTF8');
+
+const Transform = stream.Transform;
 
 function Mayusculas() {
-    transForm.call(this);
+    Transform.call(this);
 }
 
-util.inherits(Mayusculas, transForm);
+util.inherits(Mayusculas, Transform);
 
 Mayusculas.prototype._transform = (chunk, codif, callback) => {
     chunkMayus = chunk.toString().toUpperCase();
@@ -43,4 +42,3 @@ readableStream
     .pipe(mayus)
     .pipe(process.stdout);
 
-    
