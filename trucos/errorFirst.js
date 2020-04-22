@@ -10,9 +10,6 @@ function asincrona(callback) {
 };
 
 
-
-
-
  asincrona( (error, dato) => {
      if (error) {
           console.error('tenermos error');
