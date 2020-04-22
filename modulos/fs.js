@@ -1,6 +1,8 @@
 const fs = require('fs');
 
 function leer(ruta, callback) {
+    //se los parametros van primero los errores
+    //se da por sentado que todas cosas pueden fallar
     fs.readFile(ruta, (err, data) => {
         console.log(data.toString());
     })
