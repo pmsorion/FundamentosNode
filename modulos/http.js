@@ -2,14 +2,15 @@ const http = require('http');
 const PUERTO = 3000;
 
 http.createServer(router).listen(PUERTO);
-
+console.log(`Escuchando en el puerto: ${PUERTO}`);
 function router(req, res) {
      console.log('nueva peticion¡');
      console.log(req.url);
 
      switch (req.url) {
          case '/hola':
-             res.write('hola, que tal');
+             let saludo = hola();
+             res.write(saludo);
 
              res.end();
              break;
@@ -18,6 +19,11 @@ function router(req, res) {
             res.end();
      }
 }
+
+function hola() {
+    return 'hola como estas';
+};
+
 
 // http.createServer((req, res) =>{
 //     console.log('nueva peticion¡');
